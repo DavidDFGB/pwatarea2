@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 03</title>
+	<h1>Ejerccio 03 Cambio de imagen al pasar el raton</h1>
+</head>
+
+<style>
+	#gif {
+	width: 200px; 
+	height: 200px;
+}
+
+</style>
+
+<body>
+
+	<img src="https://share.america.gov/wp-content/uploads/2015/06/shutterstock_223131421.jpg" alt="GIF" id="gif">
+
+	<script>
+		window.onload = function(){
+
+				var cont = 0;
+	 			var gifs = ['https://upload.wikimedia.org/wikipedia/commons/2/2c/Rotating_earth_%28large%29.gif','https://i.stack.imgur.com/e8nZC.gif','https://i.pinimg.com/originals/0e/44/7b/0e447bcb092088c8bd09584b2c2dd833.gif']
+				var element = document.querySelector('#gif');
+
+				element.addEventListener('mouseover', function(){
+					change();
+					if(cont < 2){
+						cont++;
+					}else{
+						cont = 0;
+					}
+				});
+
+				element.addEventListener('mouseout', function(){
+
+					restablecer();
+
+				});
+
+				function restablecer(){
+
+					element.setAttribute('src', 'https://share.america.gov/wp-content/uploads/2015/06/shutterstock_223131421.jpg')
+				};
+
+
+				function change(){
+
+					element.setAttribute('src', gifs[cont]);
+
+				};
+
+			};
+	</script>
+</body>
+</html>

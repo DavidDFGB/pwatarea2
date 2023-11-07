@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<title>Calculadora UBE</title>
+</head>
+<style>
+	#appbg{
+		height: 430px;
+		width: 300px;
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+
+	#appbg form {
+		height: 430px;
+		width: 300px;
+		background-color: rgba(0, 0, 0);
+	}
+
+	#appbg input[type=texfield]{
+		height: 25%;
+		width: 95%;
+		cursor: default;
+		font-family: 'Roboto', sans-serif;
+		background-color: rgba(0, 0, 0, 0);
+		color: white;
+		padding: 15px;
+		text-align: right;
+		font-size: 50px;
+		border: 0;
+		outline: none;
+
+	}
+
+	#appbg input[type=button], input[type=reset]{
+		width: 21%;
+		cursor: pointer;
+		font-family: 'Roboto', sans-serif;
+		font-size: 26px;
+		color: black;
+		padding: 18px;
+		margin: 3px;
+		border: 0;
+		border-radius: 100%;
+	}
+
+	#appbg .orange{
+		background-color: rgba(254, 149, 3) !important;
+		color: white !important;
+	}
+	#appbg .gray{
+		background-color: rgba(51, 51, 51) !important;
+		color: white !important;
+	}
+
+</style>
+
+<h1>Calculadora UBE</h1>
+<body>
+	<div id="appbg">
+		<form name="Calculator">
+			<input type="texfield" name="ans" value="" autocomplete="off" readonly>
+		
+			<input type="button" value="7" onclick="document.Calculator.ans.value+='7'" class="gray">
+			<input type="button" value="8" onclick="document.Calculator.ans.value+='8'" class="gray">
+			<input type="button" value="9" onclick="document.Calculator.ans.value+='9'" class="gray">
+			<input type="button" value="+" onclick="document.Calculator.ans.value+='+'" class="orange">
+			<br>
+			<input type="button" value="4" onclick="document.Calculator.ans.value+='4'" class="gray">
+			<input type="button" value="5" onclick="document.Calculator.ans.value+='5'" class="gray">
+			<input type="button" value="6" onclick="document.Calculator.ans.value+='6'" class="gray">
+			<input type="button" value="-" onclick="document.Calculator.ans.value+='-'" class="orange">
+			<br>
+			<input type="button" value="1" onclick="document.Calculator.ans.value+='1'" class="gray">
+			<input type="button" value="2" onclick="document.Calculator.ans.value+='2'" class="gray">
+			<input type="button" value="3" onclick="document.Calculator.ans.value+='3'" class="gray">
+			<input type="button" value="x" onclick="document.Calculator.ans.value+='*'" class="orange">
+			<br>
+			<input type="button" value="0" onclick="document.Calculator.ans.value+='0'" class="gray">
+			<input type="reset" value="C">
+			<input type="button" value="=" onclick="document.Calculator.ans.value=eval(document.Calculator.ans.value)">
+			<input type="button" value="/" onclick="document.Calculator.ans.value+='/'" class="orange">
+		</form>
+
+
+	</div>
+
+
+
+
+
+
+
+</body>
+</html>

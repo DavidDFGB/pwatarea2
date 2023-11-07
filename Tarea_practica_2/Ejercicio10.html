@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 10</title>
+	<h1>Ejercicio 10 juego de preguntas y respuestas</h1>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">		
+	<script src="http://code.jquery.com/jquery.js"></script>
+    <title>Crear un objecte</title>
+</head>
+<style>
+	.body {
+		width: 100%;
+		height: 100vt;
+		align-items: center;
+		background: beige;
+		font-family: 25px;
+		font-size: 30px;
+	}
+
+
+
+</style>
+<body class="body">
+	<div id='pregunta'></div>
+	<div id='respuestas'></div>
+<input type='button' value="solución" onclick='comprobar()'>
+<input type='button' value="siguiente"onclick="location.reload()">
+	<script>
+
+		var preguntas = [
+			'Quién descubrió América?',
+			'Qué equipo ganó la Copa libertadores 2023?',
+			'En que año se estrenó El Rey León?'
+			
+			];
+			
+		var respuestas = [
+				['Colón', 'Leonardo Da Vinci', 'Federico García Lorca', 'Emilio Butragueño'],
+				['Flamengo', 'R Madrid', 'At Madrid', 'Boca Junior'],
+				['1994', '1988', '1996', '1991']
+				
+			];
+			
+			var indice_aleatorio = Math.floor(Math.random()*preguntas.length);
+			
+			
+			var respuestas_elegir = respuestas[indice_aleatorio];
+			
+			var posiciones = [0,1,2,3];
+			var respuestas_ordenadas = [];
+			
+			
+			var indicie_respuesta_correcta;
+			for(i in respuestas_elegir){
+				var posicion_aleatoria = Math.floor(Math.random()*posiciones.length);
+				if (posicion_aleatoria==0){
+				var indicie_respuesta_correcta = i;
+				
+			}
+				respuestas_ordenadas[i] = respuestas_elegir[posiciones[posicion_aleatoria]];
+				posiciones.splice(posicion_aleatoria, 1);
+			
+			}
+			
+			var txt_respuestas='';
+			for(i in respuestas_ordenadas){
+			 txt_respuestas += '<input type="radio" name="pp" value="'+i+'"><label>'+respuestas_ordenadas[i]+'</label><br>'
+			}
+			
+			document.getElementById('respuestas').innerHTML = txt_respuestas;	
+			document.getElementById('pregunta').innerHTML = preguntas[indice_aleatorio];
+			
+		function comprobar(){
+			var respuesta = $("input[type=radio]:checked").val();
+			if(respuesta ==indicie_respuesta_correcta){
+				alert("que bien");
+			}else{
+				alert("MUY MAL");
+			}
+		}
+	
+
+	</script>
+</body>
+</html>

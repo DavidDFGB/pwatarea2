@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 05</title>
+	<h3 style="color: white; align-items: center;">Ejerccio 05 Validacion de un formulario</h3><br>
+</head>
+<style>
+	
+	.body{
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #0b1721;
+	}
+
+	.form{
+		width: 100%;
+		height: 100vt;
+		max-width: 400px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.input{
+		width: 100%;
+		height: 100vt;
+		background: none;
+		color: #fff;
+		padding-top: 40px;
+		border: none;
+		outline: 0px;
+	}
+
+</style>
+
+<body class="body">
+	
+	<form class="form" action="formulario.js" method="post"><br>
+	    <input class="input" type="text" name="nombre" placeholder="Nombre"><br>
+	    <input class="input" type="number" name="edad" placeholder="Edad"><br>
+	    <input class="input" type="email" name="correo" placeholder="Correo electrónico"><br>
+	    <input class="input" type="submit" value="Enviar">
+  	</form>
+
+  	<script>
+		function validarFormulario() {
+		  // Validamos el nombre
+		  let nombre = document.querySelector("#nombre").value;
+		  if (nombre === "") {
+		    alert("El nombre es obligatorio");
+		    return false;
+		  }
+
+		  // Validamos la edad
+		  let edad = document.querySelector("#edad").value;
+		  if (edad === "") {
+		    alert("La edad es obligatoria");
+		    return false;
+		  }
+
+		  // Validamos el correo electrónico
+		  let correo = document.querySelector("#correo").value;
+		  if (correo === "") {
+		    alert("El correo electrónico es obligatorio");
+		    return false;
+		  } else if (!/\w+@\w+\.\w+/.test(correo)) {
+		    alert("El correo electrónico no es válido");
+		    return false;
+		  }
+
+		  // Los datos son correctos, enviamos el formulario
+		  return true;
+		}
+
+		// Al enviar el formulario
+		document.querySelector("form").addEventListener("submit", function() {
+		  if (validarFormulario()) {
+		    // Enviamos el formulario al servidor
+		    document.querySelector("form").submit();
+		  }
+		});
+  	</script>
+
+</body>
+</html>
